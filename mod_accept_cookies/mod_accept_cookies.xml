@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0.0" client="site" method="upgrade">
+	<name>MOD_ACCEPT_COOKIES</name>
+	<author>@Javi_Mata</author>
+	<creationDate>June 2017</creationDate>
+	<copyright>Copyright (C) 2017 - All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>javimata@gmail.com</authorEmail>
+	<authorUrl>www.javimata.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_ACCEPT_COOKIES_XML_DESCRIPTION</description>
+
+    <updateservers>
+        <server type="extension" name="Accept Cookies" priority="1">http://updates.javimata.com/mod_accept_cookies_update.xml</server>
+    </updateservers>
+
+	<files>
+		<filename module="mod_accept_cookies">mod_accept_cookies.php</filename>
+		<folder>assets</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_accept_cookies.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_accept_cookies.sys.ini</language>
+		<language tag="es-ES">es-ES/es-ES.mod_accept_cookies.ini</language>
+		<language tag="es-ES">es-ES/es-ES.mod_accept_cookies.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="position" type="list" label="MOD_ACCEPT_COOKIES_POSITION_LABEL" description="MOD_ACCEPT_COOKIES_POSITION_DESC" default="2">
+					<option value="1">MOD_ACCEPT_COOKIES_POSITION1</option>
+					<option value="2">MOD_ACCEPT_COOKIES_POSITION2</option>
+				</field>
+
+				<field name="content" type="editor" description="MOD_ACCEPT_COOKIES_CONTENT_DESC" label="MOD_ACCEPT_COOKIES_CONTENT_LABEL" required="true" filter="raw" />
+
+				<field name="button_close_class" type="text" default="glyphicon glyphicon-remove-circle" label="MOD_ACCEPT_COOKIES_CLOSE_BUTTON_LABEL" description="MOD_ACCEPT_COOKIES_CLOSE_BUTTON_DESC" required="true" />
+				
+			</fieldset>
+
+			<fieldset name="description" label="MOD_ACCEPT_COOKIES_ADD_TAB_DESCRIPTION">
+			
+				<field name="notadescripcion" type="note" label="MOD_ACCEPT_COOKIES_ADD_DESCRIPTION_LABEL" description="MOD_ACCEPT_COOKIES_ADD_DESCRIPTION_DESC" />
+
+			</fieldset>
+
+			<fieldset name="configuracion" label="MOD_ACCEPT_COOKIES_ADD_TAB_CONFIGURATION">
+
+				<field name="add_fontawesome" class="btn-group btn-group-yesno" buttons="true" type="radio" default="0" label="MOD_ACCEPT_COOKIES_ADD_FONTAWESOME_LABEL" description="MOD_ACCEPT_COOKIES_ADD_FONTAWESOME_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="source_fontawesome" type="list" default="1" label="MOD_ACCEPT_COOKIES_SOURCE_FONTAWESOME_LABEL" description="MOD_ACCEPT_COOKIES_SOURCE_FONTAWESOME_DESC" showon="add_fontawesome:1">
+					<option value="1">MOD_ACCEPT_COOKIES_SOURCE_FONTAWESOME_OPTION1</option>
+					<option value="2">MOD_ACCEPT_COOKIES_SOURCE_FONTAWESOME_OPTION2</option>
+				</field>
+
+				<field name="fontawesome_url" type="text" default="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" label="MOD_ACCEPT_COOKIES_FONTAWESOME_URL_LABEL" description="MOD_ACCEPT_COOKIES_FONTAWESOME_URL_DESC" showon="source_fontawesome:1[AND]add_fontawesome:1" />
+
+
+				<field name="cookie_lifetime" type="text" default="1" label="MOD_ACCEPT_COOKIES_COOKIE_LIFETIME_LABEL" description="MOD_ACCEPT_COOKIES_COOKIE_LIFETIME_DESC" filter="integer" required="true" />
+
+				<field name="cookie_domain" type="text" default="/" label="MOD_ACCEPT_COOKIES_DOMAIN_LABEL" description="MOD_ACCEPT_COOKIES_DOMAIN_DESC" required="true" />
+			
+			</fieldset>
+
+			<fieldset name="advanced">
+
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+	
+				<field name="className" type="text" default="" label="MOD_ACCEPT_COOKIES_CLASS_LABEL" description="MOD_ACCEPT_COOKIES_CLASS_DESC" />
+
+				<field name="idName" type="text" default="" label="MOD_ACCEPT_COOKIES_ID_LABEL" description="MOD_ACCEPT_COOKIES_ID_DESC" />
+
+			</fieldset>
+
+		</fields>
+
+	</config>
+</extension>

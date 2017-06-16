@@ -1,0 +1,21 @@
+.acepta-cookies {
+    position: fixed;
+    bottom: 0;
+    padding: 2em 0;
+    background: rgba(0,0,0,.7);
+    width: 100%;
+    z-index: 999999;
+    color: #fff;
+    text-align: center;
+}
+
+.acepta-cookies span.btn-close{
+	color: #fff;
+	vertical-align: middle;
+	position: absolute;
+    right: 20px;
+}
+
+.acepta-cookies a{
+	color: #fff;
+}
