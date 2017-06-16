@@ -4,7 +4,7 @@ $document = JFactory::getDocument();
 
 // Obtener valores
 $position           = $params->get("position",1);
-$content            = $params->get("content");
+$contentText        = $params->get("content");
 $button_accept      = $params->get("button_accept");
 $button_close_class = $params->get("button_close_class","glyphicon glyphicon-remove-circle");
 $add_fontawesome    = $params->get("add_fontawesome",0);
@@ -43,22 +43,22 @@ if ( $position == 1 ) {
 
 
 $cookie_name = md5("acepta_cookies");
-if( !isset($_COOKIE[$cookie_name]) ):
+if( !isset($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] != 1 ):
 ?>
 
-<div class="acepta-cookies">
-	<?php echo $content; ?>
-	<a href="#" class="cerrar-acepta"><span class="btn-close <?php echo $button_close_class; ?>" aria-hidden="true"></span></a>
-</div>
+	<div class="acepta-cookies">
+		<?php echo $contentText; ?>
+		<a href="#" class="cerrar-acepta"><span class="btn-close <?php echo $button_close_class; ?>" aria-hidden="true"></span></a>
+	</div>
 
-<script>
-	(function($) {
-		$.cookie('<?php echo $cookie_name; ?>', '1', { expires: <?php echo $cookie_lifetime; ?>, path: '<?php echo $cookie_domain; ?>' });
-		$("a.cerrar-acepta").click(function(e){
-			e.preventDefault();
-			$("div.acepta-cookies").fadeOut();
-		});
-	}).apply(this, [jQuery]);
-</script>
+	<script>
+		(function($) {
+			$.cookie('<?php echo $cookie_name; ?>', '1', { expires: <?php echo $cookie_lifetime; ?>, path: '<?php echo $cookie_domain; ?>' });
+			$("a.cerrar-acepta").click(function(e){
+				e.preventDefault();
+				$("div.acepta-cookies").fadeOut();
+			});
+		}).apply(this, [jQuery]);
+	</script>
 
 <?php endif; ?>
